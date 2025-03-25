@@ -20,13 +20,14 @@ export const createCheckoutSession = async (req, res) => {
 
       return {
         price_data: {
-          currency: 'rm',
+          currency: 'myr',
           product_data: {
             name: product.name,
             images: [product.image],
           },
           unit_amount: amount,
         },
+        quantity: product.quantity || 1,
       };
     });
 
@@ -140,7 +141,7 @@ async function createNewCoupon(userId) {
   const newCoupon = new Coupon({
     code: 'GIFT' + Math.random().toString(36).substring(7).toUpperCase(),
     discountPercentage: 10,
-    expirationDate: newDate(Date.now() + 30 * 24 * 60 * 60 * 1000),
+    expirationDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
     userId: userId,
   });
 

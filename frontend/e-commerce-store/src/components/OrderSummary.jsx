@@ -5,7 +5,9 @@ import { MoveRight } from 'lucide-react';
 import { loadStripe } from '@stripe/stripe-js';
 import axios from '../lib/axios';
 
-const stripePromise = loadStripe('');
+const stripePromise = loadStripe(
+  'pk_test_51R5DMLFqvT45ae1vXuLMUt762uIRDNHFL77myPYhTQRuE1S0mkVh5EbkfaPVUaefcwvoYsErwQqK8hp2e5glKUax00g9L9dfT0'
+);
 
 const OrderSummary = () => {
   const { total, subtotal, coupon, isCouponApplied, cart } = useCartStore();
